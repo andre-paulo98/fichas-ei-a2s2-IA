@@ -51,14 +51,14 @@ public class Node implements Comparable<Node> {
         return (f < other.f) ? -1 : (f == other.f) ? 0 : 1;
     }
     
-    public boolean isCycle() {
-        Node auxParent = parent;
-        while (auxParent != null) {
-            if (state.equals(auxParent.getState())) {
+    public boolean isCycle(State state) {
+        Node aux = this;
+        do {
+            if(state.equals(aux.getState())) {
                 return true;
             }
-            auxParent = auxParent.getParent();
-        }
+            aux = aux.getParent();
+        } while (aux != null);
         return false;
     }
     
