@@ -6,8 +6,7 @@ public class HeuristicTilesOutOfPlace extends Heuristic<EightPuzzleProblem, Eigh
 
     @Override
     public double compute(EightPuzzleState state) {
-        //TODO
-        return 0;
+        return state.computeTilesOutOfPlace(problem.getGoalState());
     }
     
     @Override

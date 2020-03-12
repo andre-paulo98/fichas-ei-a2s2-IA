@@ -47,4 +47,8 @@ public class EightPuzzleProblem extends Problem<EightPuzzleState> {
     public double computePathCost(List<Action> path) {
         return path.size();
     }
+
+    public EightPuzzleState getGoalState() {
+        return goalState;
+    }
 }

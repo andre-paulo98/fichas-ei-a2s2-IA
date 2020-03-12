@@ -1,7 +1,9 @@
 package searchmethods;
 
 import agent.State;
+
 import java.util.List;
+
 import utils.NodePriorityQueue;
 
 public class BeamSearch extends AStarSearch {
@@ -18,7 +20,15 @@ public class BeamSearch extends AStarSearch {
 
     @Override
     public void addSuccessorsToFrontier(List<State> successors, Node parent) {
-        //TODO
+        super.addSuccessorsToFrontier(successors, parent);
+        if (frontier.size() > beamSize) {
+
+            NodePriorityQueue aux = new NodePriorityQueue();
+            for (int i = 0; i < beamSize; i++) {
+                aux.add(frontier.poll());
+            }
+            frontier = aux;
+        }
     }
 
     public void setBeamSize(int beamSize) {

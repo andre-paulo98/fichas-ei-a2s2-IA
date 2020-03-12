@@ -6,8 +6,7 @@ public class HeuristicTileDistance extends Heuristic<EightPuzzleProblem, EightPu
 
     @Override
     public double compute(EightPuzzleState state){
-        //TODO
-        return 0;
+        return state.computeTileDistances(problem.getGoalState());
     }
     
     @Override
